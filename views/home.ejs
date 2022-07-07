@@ -1,0 +1,14 @@
+<%- include('partials/header') -%> 
+<br><br>
+<% posts.forEach((value)=>{ %>
+<h1><%= value.title %></h1>
+<p>
+  <%= value.post.slice(0,100) %> 
+  <a href="/posts/<%= value.title %>">..Read more</a>
+</p>
+<br />
+<% }); %>
+<br />
+<br />
+<a class="btn btn-outline-success" href="/compose">Compose</a>
+<%- include('partials/footer') -%>
