@@ -1,6 +1,6 @@
 # Blog Website
 
-This my Blog Website made using nodejs, expressjs And is deployed on Heroku
+This my Blog Website made using nodejs, expressjs And is deployed on Heroku.\
 Live Link - [Heroku](https://murmuring-garden-28820.herokuapp.com/).
 
 ## Available Scripts
