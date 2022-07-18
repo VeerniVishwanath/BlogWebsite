@@ -84,6 +84,7 @@ async function main() {
             res.render("post", { title: postItem.title, post: postItem.post });
           }
         });
+        res.redirect("/");
       } else {
         console.log(err);
       }
