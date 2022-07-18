@@ -1,7 +1,14 @@
 # Blog Website
 
-This my Blog Website made using nodejs, expressjs And is deployed on Heroku.\
+This my Blog Website made using node,ejs and mongodb
+And is deployed on Heroku.\
 Live Link - [Heroku](https://murmuring-garden-28820.herokuapp.com/).
+
+## Tech Stack I used
+
+- [Node](https://nodejs.org/en/)
+- [EJS](https://ejs.co/)
+- [MongoDB](https://www.mongodb.com/)
 
 ## Available Scripts
 
@@ -22,5 +29,3 @@ You may also see any lint errors in the console.
 ## Authors
 
 - [@VeerniVishwanath](https://github.com/VeerniVishwanath)
-
-
