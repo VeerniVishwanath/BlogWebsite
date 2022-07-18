@@ -38,7 +38,7 @@ async function main() {
   app.get("/", (req, res) => {
     // Find and save all posts in posts collection
     Post.find({}, (err, foundPosts) => {
-      if(!err){
+      if (!err) {
         // if The db is empty
         if (foundPosts.length === 0) {
           // Create Home Document
@@ -46,14 +46,15 @@ async function main() {
             title: "HOME",
             post: "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.",
           });
-          Home.save();
-          setTimeout(() => {
-            res.redirect("/");
-          }, 200);
+          Home.save((err) => {
+            if (!err) {
+              res.redirect("/");
+            }
+          });
         } else {
           res.render("home", { posts: foundPosts });
         }
-      }else{
+      } else {
         console.log(err);
       }
     });
@@ -75,18 +76,18 @@ async function main() {
   app.get("/posts/:postTitle", (req, res) => {
     const postTitle = _.lowerCase(req.params.postTitle);
 
-    Post.find({}, (err,foundPosts)=>{
-      if(!err){
-        foundPosts.forEach(postItem => {
+    Post.find({}, (err, foundPosts) => {
+      if (!err) {
+        foundPosts.forEach((postItem) => {
           const title = _.lowerCase(postItem.title);
-          if(title == postTitle){
-            res.render("post",{title:postItem.title,post:postItem.post})
+          if (title == postTitle) {
+            res.render("post", { title: postItem.title, post: postItem.post });
           }
         });
-      }else{
+      } else {
         console.log(err);
       }
-    })
+    });
 
     // posts.forEach((value) => {
     //   const title = _.lowerCase(value.title);
@@ -103,10 +104,11 @@ async function main() {
       title: req.body.composeTitle,
       post: req.body.composePost,
     });
-    newPost.save();
-    setTimeout(() => {
-          res.redirect("/");
-    }, 200);
+    newPost.save((err) => {
+      if (!err) {
+        res.redirect("/");
+      }
+    });
   });
 }
 
