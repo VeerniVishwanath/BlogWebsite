@@ -1,6 +1,6 @@
 # Blog Website
 
-This my Blog Website made using node,ejs and mongodb
+This is a Blog Website I made using node, ejs and mongodb
 And is deployed on Heroku.\
 Live Link - [Heroku](https://murmuring-garden-28820.herokuapp.com/).
 
