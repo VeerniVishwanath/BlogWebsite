@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const _ = require("lodash");
@@ -11,7 +12,7 @@ main().catch((err) => {
 async function main() {
   // Mongoose Connections
   const url =
-    "mongodb+srv://admin-vishwanath:hpK23yqf2ro0SpI2@cluster0.olpmf.mongodb.net";
+    "mongodb+srv://admin-vishwanath:"+process.env.PASSWORD+"@cluster0.olpmf.mongodb.net";
   const Path = "/blogDB";
   await mongoose.connect(url + Path);
 
